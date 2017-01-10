@@ -71,25 +71,6 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
 
 
-	public void initAllObjects(ArrayList<Visible> viewObjects) {
-		addButtons(viewObjects);
-		progress = getProgress();
-		label = new TextLable(130,230,300,40,"Let's play Simon!");
-		sequence = new ArrayList<MoveInterfaceDaniel>();
-		//add 2 moves to start
-		lastSelectedButton = -1;
-		sequence.add(randomMove());
-		sequence.add(randomMove());
-		roundNumber = 0;
-		viewObjects.add((Visible) progress);
-		viewObjects.add(label);
-
-
-	}
-
-
-
-
 	private MoveInterfaceDaniel randomMove() {
 		ButtonInterfaceDaniel b = null;
 		int select = (int) (Math.random()*buttons.length);
@@ -112,7 +93,7 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
 
 
-	private void addButtons(ArrayList<Visible> viewObjects) {
+	private void addButtons(List<Visible> viewObjects) {
 		int buttonCount = 3;
 		Color[] colors = {Color.red, Color.blue,Color.green};
 		for(int i = 0; i < buttonCount; i++ ){
@@ -209,10 +190,24 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
 
 	@Override
-	public void initAllObjects(List<Visible> arg0) {
-		// TODO Auto-generated method stub
+	public void initAllObjects(List<Visible> viewObjects) {
+		addButtons(viewObjects);
+		progress = getProgress();
+		label = new TextLable(130,230,300,40,"Let's play Simon!");
+		sequence = new ArrayList<MoveInterfaceDaniel>();
+		//add 2 moves to start
+		lastSelectedButton = -1;
+		sequence.add(randomMove());
+		sequence.add(randomMove());
+		roundNumber = 0;
+		viewObjects.add((Visible) progress);
+		viewObjects.add(label);
+
 		
 	}
+
+
+
 
 
 
