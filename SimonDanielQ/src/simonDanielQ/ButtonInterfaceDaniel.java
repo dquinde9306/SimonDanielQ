@@ -4,7 +4,7 @@ import gui.components.Action;
 import gui.components.Clickable;
 import java.awt.Color;
 
-public interface ButtonInterfaceDaniel {
+public interface ButtonInterfaceDaniel extends Clickable{
 
 	void setAction(Action a);
 

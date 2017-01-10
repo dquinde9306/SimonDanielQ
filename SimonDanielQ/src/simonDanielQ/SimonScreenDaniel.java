@@ -71,9 +71,8 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
 
 
-	@Override
-	public void initAllObjects(List<Visible> viewObjects) {
-		addButtons();
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
+		addButtons(viewObjects);
 		progress = getProgress();
 		label = new TextLable(130,230,300,40,"Let's play Simon!");
 		sequence = new ArrayList<MoveInterfaceDaniel>();
@@ -82,7 +81,7 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 		sequence.add(randomMove());
 		sequence.add(randomMove());
 		roundNumber = 0;
-		viewObjects.add(progress);
+		viewObjects.add((Visible) progress);
 		viewObjects.add(label);
 
 
@@ -92,27 +91,36 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
 
 	private MoveInterfaceDaniel randomMove() {
+		ButtonInterfaceDaniel b = null;
 		int select = (int) (Math.random()*buttons.length);
 		while(select == lastSelectedButton){
 			select = (int) (Math.random()*buttons.length);
 		}
 		lastSelectedButton = select;
-		return getMove(buttons[select]);
+		
+		return getMove(b);
 	}
 
 
 
 
-	private void addButtons() {
+	private MoveInterfaceDaniel getMove(ButtonInterfaceDaniel b) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+	private void addButtons(ArrayList<Visible> viewObjects) {
 		int buttonCount = 3;
 		Color[] colors = {Color.red, Color.blue,Color.green};
 		for(int i = 0; i < buttonCount; i++ ){
-			buttons[i] = getAButton();
-			buttons[i].setColor(colors[i]);
-			buttons[i].setX(160 + (int)(100*Math.cos(i*2*Math.PI/(buttonCount))));
-			buttons[i].setY(200 - (int)(100*Math.sin(i*2*Math.PI/(buttonCount))));
-			final ButtonInterfaceDaniel b = buttons[i];
-			buttons[i].setAction(new Action(){
+			final ButtonInterfaceDaniel b = getAButton();
+			b.setColor(colors[i]);
+			b.setX(160 + (int)(100*Math.cos(i*2*Math.PI/(buttonCount))));
+			b.setY(200 - (int)(100*Math.sin(i*2*Math.PI/(buttonCount))));
+			b.setAction(new Action(){
 
 				public void act(){
 					if(acceptingInput){
@@ -157,7 +165,7 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
 	private ButtonInterfaceDaniel getAButton() {
 		// TODO Auto-generated method stub
-		return new Button();
+		return null;
 	}
 
 
@@ -195,6 +203,15 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 			}
 		}
 		b.dim();
+	}
+
+
+
+
+	@Override
+	public void initAllObjects(List<Visible> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
