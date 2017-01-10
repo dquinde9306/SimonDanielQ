@@ -97,7 +97,7 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 			select = (int) (Math.random()*buttons.length);
 		}
 		lastSelectedButton = select;
-		return new MoveInterfaceDaniel(buttons[select]);
+		return getMove(buttons[select]);
 	}
 
 
