@@ -154,13 +154,6 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
 
 
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-
-	}
-
-
 	private void playSequence() {
 		ButtonInterfaceDaniel b = null;
 		for(MoveInterfaceDaniel m: sequence){
