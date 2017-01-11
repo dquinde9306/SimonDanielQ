@@ -5,14 +5,14 @@ import simonDanielQ.MoveInterfaceDaniel;
 
 public class Move implements MoveInterfaceDaniel {
 
-	public Move() {
-		// TODO Auto-generated constructor stub
+	private ButtonInterfaceDaniel b; 
+	
+	public Move(ButtonInterfaceDaniel b) {
+		this.b = b;
 	}
 
-	@Override
 	public ButtonInterfaceDaniel getButton() {
-		// TODO Auto-generated method stub
-		return null;
+		return b;
 	}
 
 }

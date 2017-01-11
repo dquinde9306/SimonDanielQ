@@ -1,39 +1,95 @@
 package partnerCodeInHerePlease;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Polygon;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 import gui.components.Action;
+import gui.components.Components;
 import simonDanielQ.ButtonInterfaceDaniel;
 
-public class Button implements ButtonInterfaceDaniel {
+public class Button extends Components implements ButtonInterfaceDaniel {
 
+	private static final int WIDTH = 50;
+	private static final int HEIGHT = 50;
+	private Action action;
+	private Color c;
+	private Color displayColor;
+	private boolean highlight;
+	
 	public Button() {
-		// TODO Auto-generated constructor stub
+		super(0,0,WIDTH,HEIGHT);
 	}
 
-	@Override
-	public void setAction(Action a) {
-		// TODO Auto-generated method stub
-
+	public boolean isHovered(int x, int y) {
+		double distance = Math.sqrt(Math.pow(x-(getX()+WIDTH/2), 2)+Math.pow(y-(getY()+HEIGHT/2), 2));
+//		System.out.println(distance + " px away from "+name);
+		return distance < WIDTH/2;
 	}
 
-	@Override
-	public void highlight() {
-		// TODO Auto-generated method stub
-
+	public void act() {
+		action.act();
 	}
 
-	@Override
+
+
 	public void setColor(Color color) {
-		// TODO Auto-generated method stub
+		this.c = color;
+		displayColor = c;
+		update();
+	}
 
+	public void highlight() {
+		if(c != null) displayColor = c;
+		highlight = true;
+		update();
+	}
+
+	public void dim() {
+		displayColor = Color.gray;
+		highlight = false;
+		update();
+	}
+
+	public void setAction(Action action) {
+		this.action = action;
 	}
 
 	@Override
-	public void dim() {
-		// TODO Auto-generated method stub
+	public void update(Graphics2D g) {
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		if(displayColor != null) g.setColor(displayColor);
+		else g.setColor(Color.gray);
+		g.fillOval(0, 0, WIDTH, HEIGHT);
+		g.setColor(Color.black);
+		g.drawOval(0, 0, WIDTH-1, HEIGHT-1);
+		if(highlight){
+			g.setColor(Color.white);
+			Polygon p = new Polygon();
+			
+			int s = (int)(5/8.0 * WIDTH);
+			int t = (int)(1.0/5*HEIGHT)+4;
+			p.addPoint(s-4, t-4);
+			p.addPoint(s+7, t-2);
+			p.addPoint(s+10, t);
+			p.addPoint(s+14, t+10);
+			p.addPoint(s+12, t+14);
+			p.addPoint(s+8, t+3);
+			g.fill(p);
+		}
+		
+	}
 
+	
+	private String name;
+	public void setName(String s){
+		this.name = s;
+	}
+	
+	public String toString(){
+		return name;
 	}
 
 	@Override
@@ -47,59 +103,5 @@ public class Button implements ButtonInterfaceDaniel {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void act() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean isHovered(int arg0, int arg1) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public BufferedImage getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean isAnimated() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 }
