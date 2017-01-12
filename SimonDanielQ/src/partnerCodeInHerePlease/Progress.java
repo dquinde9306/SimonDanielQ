@@ -50,27 +50,26 @@ public class Progress extends Components implements ProgressInterfaceDaniel {
 	}
 
 
-	@Override
+	
 	public void gameOver() {
-		gameOver = false;
+		gameOver = true;
 		update();
 		
 	}
 
 
-	@Override
+	
 	public void setRound(int roundNumber) {
-		round +=roundNumber;
+		round = "Round " + roundNumber;
 		update();
 		
 	}
+	
 
 
-	@Override
 	public void setSequenceSize(int size) {
-		sequence += size;
+		sequence = "Sequence length "+size;
 		update();
-		
 	}
 	
 

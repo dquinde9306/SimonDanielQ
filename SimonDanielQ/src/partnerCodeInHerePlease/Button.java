@@ -18,9 +18,9 @@ public class Button extends Components implements ButtonInterfaceDaniel {
 	private Color c;
 	private Color displayColor;
 	private boolean highlight;
-	
+
 	public Button() {
-		super(0,0,WIDTH,HEIGHT);
+		super(x,y,WIDTH,HEIGHT);
 	}
 
 	public boolean isHovered(int x, int y) {
@@ -84,8 +84,8 @@ public class Button extends Components implements ButtonInterfaceDaniel {
 
 	
 	private String name;
-	private int y;
-	private int x;
+	private static int y;
+	private static int x;
 	public void setName(String s){
 		this.name = s;
 	}
@@ -94,13 +94,13 @@ public class Button extends Components implements ButtonInterfaceDaniel {
 		return name;
 	}
 
-	@Override
+	
 	public void setX(int x) {
 		this.x=x;
 		
 	}
 
-	@Override
+	
 	public void setY(int y) {
 		this.y=y;
 		
