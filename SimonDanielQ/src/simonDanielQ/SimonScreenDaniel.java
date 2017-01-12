@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.components.Action;
-import gui.components.Button;
 import gui.components.TextLable;
 import gui.components.Visible;
 import gui.screens.ClickableScreen;
+import partnerCodeInHerePlease.Move;
+import partnerCodeInHerePlease.Progress;
+import partnerCodeInHerePlease.Button;
 
 public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
@@ -35,7 +37,7 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
 	@Override
 	public void run(){
-	    label.setText("");
+	    label.setText("nm");
 	    nextRound();
 	}
 
@@ -79,17 +81,8 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 		}
 		lastSelectedButton = select;
 		
-		return getMove(b);
+		return new Move(b);
 	}
-
-
-
-
-	private MoveInterfaceDaniel getMove(ButtonInterfaceDaniel b) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 
 
@@ -145,8 +138,7 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
 
 	private ButtonInterfaceDaniel getAButton() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Button();
 	}
 
 
@@ -157,18 +149,9 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 	 */
 
 	private ProgressInterfaceDaniel getProgress() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Progress();
 	}
 
-
-
-
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-
-	}
 
 
 	private void playSequence() {
