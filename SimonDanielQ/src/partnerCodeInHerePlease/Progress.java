@@ -7,15 +7,15 @@ import simonDanielQ.ProgressInterfaceDaniel;
 
 public class Progress extends Components implements ProgressInterfaceDaniel {
 	
-	//private static final int WIDTH = 120;
-	//private static final int HEIGHT = 50;
+	private static final int WIDTH = 120;
+	private static final int HEIGHT = 50;
 
 	private boolean gameOver;
 	private int round;
 	private int sequence;
 	
-	public Progress(int x, int y, int w, int h) {
-		super(x, y, w, h);
+	public Progress() {
+		super(60,60,WIDTH,HEIGHT);
 	
 		gameOver=false;
 	}

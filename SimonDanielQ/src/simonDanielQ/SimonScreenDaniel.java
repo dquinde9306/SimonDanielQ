@@ -149,7 +149,7 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 	 */
 
 	private ProgressInterfaceDaniel getProgress() {
-		return new Progress(lastSelectedButton, lastSelectedButton, lastSelectedButton, lastSelectedButton);
+		return new Progress();
 	}
 
 
