@@ -88,7 +88,7 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 	private void addButtons(List<Visible> viewObjects) {
 		int buttonCount = 3;
 		Color[] colors = {Color.red, Color.blue,Color.green};
-		String[] names = {"RED", "BLUE", "ORANGE", "GREEN", "YELLOW", "PURPLE"};
+		String[] names = {"RED", "BLUE", "GREEN"};
 		buttons = new ButtonInterfaceDaniel[buttonCount];
 		for(int i = 0; i < buttonCount; i++ ){
 			buttons[i] = getAButton();
@@ -120,7 +120,7 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 						blink.start();
 						if(sequence.get(sequenceIndex).getButton() == b){
 							sequenceIndex++;
-						}else {
+						}else if(acceptingInput) {
 							progress.gameOver();
 							return;
 						}
@@ -183,7 +183,7 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 	public void initAllObjects(List<Visible> viewObjects) {
 		addButtons(viewObjects);
 		progress = getProgress();
-		label = new TextLable(130,230,300,40,"Let's play Simon!");
+		label = new TextLable(300,500,300,40,"Let's play Simon!");
 		sequence = new ArrayList<MoveInterfaceDaniel>();
 		//add 2 moves to start
 		lastSelectedButton = -1;
