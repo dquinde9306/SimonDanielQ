@@ -88,13 +88,19 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 	private void addButtons(List<Visible> viewObjects) {
 		int buttonCount = 3;
 		Color[] colors = {Color.red, Color.blue,Color.green};
+		String[] names = {"RED", "BLUE", "ORANGE", "GREEN", "YELLOW", "PURPLE"};
 		buttons = new ButtonInterfaceDaniel[buttonCount];
 		for(int i = 0; i < buttonCount; i++ ){
 			buttons[i] = getAButton();
 			buttons[i].setColor(colors[i]);
+			buttons[i].setName(names[i]);
 			buttons[i].setX(160 + (int)(100*Math.cos(i*2*Math.PI/(buttonCount))));
 			buttons[i].setY(200 - (int)(100*Math.sin(i*2*Math.PI/(buttonCount))));
 			final ButtonInterfaceDaniel b = buttons[i];
+			System.out.println(b+" has x = "+b.getX()+", y ="+b.getY());
+
+			b.dim();
+
 			b.setAction(new Action(){
 
 				public void act(){
