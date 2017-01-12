@@ -74,7 +74,6 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
 
 	private MoveInterfaceDaniel randomMove() {
-		buttons = new ButtonInterfaceDaniel[3];
 		int select = (int) (Math.random()*buttons.length);
 		while(select == lastSelectedButton){
 			select = (int) (Math.random()*buttons.length);
@@ -89,11 +88,13 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 	private void addButtons(List<Visible> viewObjects) {
 		int buttonCount = 3;
 		Color[] colors = {Color.red, Color.blue,Color.green};
+		buttons = new ButtonInterfaceDaniel[buttonCount];
 		for(int i = 0; i < buttonCount; i++ ){
-			final ButtonInterfaceDaniel b = getAButton();
-			b.setColor(colors[i]);
-			b.setX(160 + (int)(100*Math.cos(i*2*Math.PI/(buttonCount))));
-			b.setY(200 - (int)(100*Math.sin(i*2*Math.PI/(buttonCount))));
+			buttons[i] = getAButton();
+			buttons[i].setColor(colors[i]);
+			buttons[i].setX(160 + (int)(100*Math.cos(i*2*Math.PI/(buttonCount))));
+			buttons[i].setY(200 - (int)(100*Math.sin(i*2*Math.PI/(buttonCount))));
+			final ButtonInterfaceDaniel b = buttons[i];
 			b.setAction(new Action(){
 
 				public void act(){
