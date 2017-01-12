@@ -29,7 +29,7 @@ public class Progress extends Components implements ProgressInterfaceDaniel {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		FontMetrics fm = g.getFontMetrics();
 		if(gameOver){
-			g.setColor(new Color(255,55,90));
+			g.setColor( Color.black);
 			g.fillRect(0, 0, 120, 50);
 			g.setColor(Color.white);
 			String go = "GAME OVER!";

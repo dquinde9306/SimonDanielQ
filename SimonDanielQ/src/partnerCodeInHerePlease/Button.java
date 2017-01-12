@@ -37,18 +37,15 @@ public class Button extends Components implements ButtonInterfaceDaniel {
 
 	public void setColor(Color color) {
 		this.c = color;
-		displayColor = c;
 		update();
 	}
 
 	public void highlight() {
-		if(c != null) displayColor = c;
 		highlight = true;
 		update();
 	}
 
 	public void dim() {
-		displayColor = Color.gray;
 		highlight = false;
 		update();
 	}
@@ -59,30 +56,18 @@ public class Button extends Components implements ButtonInterfaceDaniel {
 
 	@Override
 	public void update(Graphics2D g) {
+		//update button graphics(set colors when on[highlighted] & grey when off [dim])
+		g = clear();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		if(displayColor != null) g.setColor(displayColor);
-		else g.setColor(Color.gray);
-		g.fillOval(0, 0, WIDTH, HEIGHT);
-		g.setColor(Color.black);
-		g.drawOval(0, 0, WIDTH-1, HEIGHT-1);
-		if(highlight){
-			g.setColor(Color.white);
-			Polygon p = new Polygon();
-			
-			int s = (int)(5/8.0 * WIDTH);
-			int t = (int)(1.0/5*HEIGHT)+4;
-			p.addPoint(s-4, t-4);
-			p.addPoint(s+7, t-2);
-			p.addPoint(s+10, t);
-			p.addPoint(s+14, t+10);
-			p.addPoint(s+12, t+14);
-			p.addPoint(s+8, t+3);
-			g.fill(p);
-		}
+		if(highlight)
+			g.setColor(c);
+		else
+			g.setColor(Color.gray);
+			g.fillOval(0, 0, 50, 50);
+			g.setColor(Color.BLACK);
+			g.drawOval(0, 0, 49, 49);
 		
 	}
-
-	
 	private String name;
 	private static int y;
 	private static int x;
