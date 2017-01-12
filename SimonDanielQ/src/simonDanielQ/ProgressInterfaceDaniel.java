@@ -1,6 +1,8 @@
 package simonDanielQ;
 
-public interface ProgressInterfaceDaniel {
+import gui.components.Visible;
+
+public interface ProgressInterfaceDaniel extends Visible {
 
 	void gameOver();
 

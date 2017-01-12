@@ -94,8 +94,8 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 			buttons[i] = getAButton();
 			buttons[i].setColor(colors[i]);
 			buttons[i].setName(names[i]);
-			buttons[i].setX(160 + (int)(100*Math.cos(i*2*Math.PI/(buttonCount))));
-			buttons[i].setY(200 - (int)(100*Math.sin(i*2*Math.PI/(buttonCount))));
+			buttons[i].setX(200*i);
+			buttons[i].setY(300+i);
 			final ButtonInterfaceDaniel b = buttons[i];
 			System.out.println(b+" has x = "+b.getX()+", y ="+b.getY());
 
@@ -190,7 +190,7 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 		sequence.add(randomMove());
 		sequence.add(randomMove());
 		roundNumber = 0;
-		viewObjects.add((Visible) progress);
+		viewObjects.add(progress);
 		viewObjects.add(label);
 
 		
