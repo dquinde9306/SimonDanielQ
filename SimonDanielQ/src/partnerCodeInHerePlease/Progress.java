@@ -16,26 +16,30 @@ public class Progress extends Components implements ProgressInterfaceDaniel {
 		gameOver=false;
 	}
 
+
+	@Override
+	public void update(Graphics2D arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	@Override
 	public void gameOver() {
 		// TODO Auto-generated method stub
-
+		
 	}
+
 
 	@Override
 	public void setRound(int roundNumber) {
 		// TODO Auto-generated method stub
-
+		
 	}
+
 
 	@Override
 	public void setSequenceSize(int size) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void update(Graphics2D arg0) {
 		// TODO Auto-generated method stub
 		
 	}

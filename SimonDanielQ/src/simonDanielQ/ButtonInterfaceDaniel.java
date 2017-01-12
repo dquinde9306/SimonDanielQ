@@ -18,5 +18,7 @@ public interface ButtonInterfaceDaniel extends Clickable{
 
 	void setY(int i);
 
+	void setName(String string);
+
 	
 }
