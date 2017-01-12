@@ -74,14 +74,14 @@ public class SimonScreenDaniel extends ClickableScreen implements Runnable{
 
 
 	private MoveInterfaceDaniel randomMove() {
-		ButtonInterfaceDaniel b = null;
+		buttons = new ButtonInterfaceDaniel[3];
 		int select = (int) (Math.random()*buttons.length);
 		while(select == lastSelectedButton){
 			select = (int) (Math.random()*buttons.length);
 		}
 		lastSelectedButton = select;
 		
-		return new Move(b);
+		return new Move(buttons[select]);
 	}
 
 
