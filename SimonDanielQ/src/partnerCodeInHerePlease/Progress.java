@@ -2,27 +2,36 @@ package partnerCodeInHerePlease;
 
 import simonDanielQ.ProgressInterfaceDaniel;
 
-public class Progress implements ProgressInterfaceDaniel {
-
+public class Progress extends Component implements ProgressInterfaceDaniel {
+	private static final int WIDTH = 120;
+	private static final int HEIGHT = 50;
+	
+	private boolean gameOver;
+	private int round;
+	private int sequence;
+	
 	public Progress() {
-		// TODO Auto-generated constructor stub
+		super(60,60,WIDTH,HEIGHT);
 	}
 
 	@Override
 	public void gameOver() {
-		// TODO Auto-generated method stub
+		gameOver=false;
+		update();
 
 	}
 
 	@Override
 	public void setRound(int roundNumber) {
-		// TODO Auto-generated method stub
+		round +=roundNumber;
+		update();
 
 	}
 
 	@Override
 	public void setSequenceSize(int size) {
-		// TODO Auto-generated method stub
+		sequence+=size;
+		update();
 
 	}
 
