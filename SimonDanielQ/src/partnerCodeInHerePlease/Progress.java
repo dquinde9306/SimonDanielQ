@@ -6,13 +6,17 @@ import gui.components.Components;
 import simonDanielQ.ProgressInterfaceDaniel;
 
 public class Progress extends Components implements ProgressInterfaceDaniel {
+	
+	//private static final int WIDTH = 120;
+	//private static final int HEIGHT = 50;
+
 	private boolean gameOver;
-	
-	
+	private int round;
+	private int sequence;
 	
 	public Progress(int x, int y, int w, int h) {
 		super(x, y, w, h);
-		// TODO Auto-generated constructor stub
+	
 		gameOver=false;
 	}
 
@@ -26,22 +30,33 @@ public class Progress extends Components implements ProgressInterfaceDaniel {
 
 	@Override
 	public void gameOver() {
-		// TODO Auto-generated method stub
+		gameOver = false;
+		update();
 		
 	}
 
 
 	@Override
 	public void setRound(int roundNumber) {
-		// TODO Auto-generated method stub
+		round +=roundNumber;
+		update();
 		
 	}
 
 
 	@Override
 	public void setSequenceSize(int size) {
-		// TODO Auto-generated method stub
+		sequence += size;
+		update();
 		
 	}
+	/**
+	 * 
+
+	public Progress() {
+		super(60,60,WIDTH,HEIGHT);
+	}
+
+	 */
 
 }
