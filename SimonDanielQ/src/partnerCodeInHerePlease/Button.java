@@ -25,7 +25,7 @@ public class Button extends Components implements ButtonInterfaceDaniel {
 
 	public boolean isHovered(int x, int y) {
 		double distance = Math.sqrt(Math.pow(x-(getX()+WIDTH/2), 2)+Math.pow(y-(getY()+HEIGHT/2), 2));
-//		System.out.println(distance + " px away from "+name);
+
 		return distance < WIDTH/2;
 	}
 

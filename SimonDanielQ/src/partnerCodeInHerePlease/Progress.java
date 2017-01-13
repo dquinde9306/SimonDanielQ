@@ -37,7 +37,7 @@ public class Progress extends Components implements ProgressInterfaceDaniel {
 			g.drawString(sequence, (50 - fm.stringWidth(sequence))/2, 40);
 
 		}else{
-			g.setColor(new Color(220,255,230));
+			g.setColor(Color.pink);
 			g.fillRect(0, 0, 120, 50);
 			g.setColor(Color.black);
 			g.drawRect(0, 0, 120-1, 50-1);
